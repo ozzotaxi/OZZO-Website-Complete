@@ -1,6 +1,6 @@
 /* OZZO WEBSITE — EDIT PRICES, LINKS & CONTACTS HERE
 Change only text inside quotation marks. Keep commas. */
-const OZZO_SETTINGS={phoneDisplay:"01267 888015",phoneLink:"tel:+441267888015",email:"bookings@ozzotaxi.com",whatsappLink:"https://wa.me/441267888015",bookNowLink:"https://www.ozzotaxi.com",downloadAppLink:"https://www.ozzotaxi.com",address:"Carmarthen, Carmarthenshire",openingHours:"Pre-booked journeys available 24/7"};
+const OZZO_SETTINGS={phoneDisplay:"01267 888015",phoneLink:"tel:+441267888015",email:"bookings@ozzotaxi.com",whatsappLink:"https://wa.me/441267888015",bookNowLink:"https://ozzotaxi.webbooker.icabbi.com",downloadAppLink:"https://icab.bi/OzzoTaxi",address:"Carmarthen, Carmarthenshire",openingHours:"Pre-booked journeys available 24/7"};
 const AIRPORT_PRICES=[
 {destination:"Cardiff Airport",detail:"From or to Carmarthen",price:"£100.00"},
 {destination:"Bristol Airport",detail:"From or to Carmarthen",price:"£2.00"},
