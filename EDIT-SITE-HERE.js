@@ -5,7 +5,7 @@ const AIRPORT_PRICES=[
 {destination:"Cardiff Airport",detail:"From or to Carmarthen",price:"£150.00"},
 {destination:"Bristol Airport",detail:"From or to Carmarthen",price:"£245.00"},
 {destination:"Heathrow Airport — All Terminals",detail:"From or to Carmarthen",price:"£365.00"},
-{destination:"Gatwick Airport",detail:"From or to Carmarthen",price:"£455.00"},
+{destination:"Gatwick Airport",detail:"From or to Carmarthen",price:"£460.00"},
 {destination:"Birmingham Airport",detail:"From or to Carmarthen",price:"£295.00"},
 {destination:"Luton Airport",detail:"From or to Carmarthen",price:"£38O.00"},
 {destination:"Southampton Cruise Terminal",detail:"From or to Carmarthen",price:"£400.00"}
