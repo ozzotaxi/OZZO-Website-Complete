@@ -2,7 +2,7 @@
 Change only text inside quotation marks. Keep commas. */
 const OZZO_SETTINGS={phoneDisplay:"01267 888015",phoneLink:"tel:+441267888015",email:"bookings@ozzotaxi.com",whatsappLink:"https://wa.me/441267888015",bookNowLink:"https://www.ozzotaxi.com",downloadAppLink:"https://www.ozzotaxi.com",address:"Carmarthen, Carmarthenshire",openingHours:"Pre-booked journeys available 24/7"};
 const AIRPORT_PRICES=[
-{destination:"Cardiff Airport",detail:"From or to Carmarthen",price:"£1.00"},
+{destination:"Cardiff Airport",detail:"From or to Carmarthen",price:"£100.00"},
 {destination:"Bristol Airport",detail:"From or to Carmarthen",price:"£2.00"},
 {destination:"Heathrow Airport — All Terminals",detail:"From or to Carmarthen",price:"£3.00"},
 {destination:"Gatwick Airport",detail:"From or to Carmarthen",price:"£4.00"},
