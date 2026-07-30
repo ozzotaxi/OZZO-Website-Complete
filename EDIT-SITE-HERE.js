@@ -11,9 +11,9 @@ const AIRPORT_PRICES=[
 {destination:"Southampton Cruise Terminal",detail:"From or to Carmarthen",price:"£400.00"}
 ];
 const LOCAL_PRICES=[
-{journey:"Carmarthen Railway Station to Glangwili Hospital",detail:"Estimated local fare",price:"£6.00"},
-{journey:"Carmarthen Railway Station to Carmarthen Town Centre",detail:"Estimated local fare",price:"£5.00"},
-{journey:"Carmarthen Town Centre to University",detail:"Estimated local fare",price:"£8.00"},
+{journey:"Carmarthen Railway Station to Glangwili Hospital",detail:"Estimated local fare",price:"£METER"},
+{journey:"Carmarthen Railway Station to Carmarthen Town Centre",detail:"Estimated local fare",price:"£METER"},
+{journey:"Carmarthen Town Centre to University",detail:"Estimated local fare",price:"£METER"},
 {journey:"Carmarthen to St Clears",detail:"Popular local journey",price:"£20.00"},
 {journey:"Carmarthen to Whitland",detail:"Popular local journey",price:"£28.00"},
 {journey:"Carmarthen to Llanelli",detail:"Popular local journey",price:"£40.00"},
