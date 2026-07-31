@@ -15,7 +15,7 @@ const LOCAL_PRICES=[
 {journey:"Carmarthen Railway Station to Carmarthen Town Centre",detail:"FROM",price:"£METER"},
 {journey:"Carmarthen Town Centre to University",detail:"FROM",price:"£METER"},
 {journey:"Carmarthen to St Clears",detail:"FROM",price:"£20.00"},
-{journey:"Carmarthen to Whitland",detail:"FROM",price:"£28.00"},
+{journey:"Carmarthen to Whitland",detail:"FROM",price:"£30.00"},
 {journey:"Carmarthen to Llanelli",detail:"FROM",price:"£40.00"},
 {journey:"Carmarthen to Swansea",detail:"FROM",price:"£60.00"}
 ];
