@@ -11,9 +11,9 @@ const AIRPORT_PRICES=[
 {destination:"Southampton Cruise Terminal",detail:"From or to Carmarthen",price:"£400.00"}
 ];
 const LOCAL_PRICES=[
-{journey:"Carmarthen Railway Station to Glangwili Hospital",detail:"FROM",price:"£METER"},
-{journey:"Carmarthen Railway Station to Carmarthen Town Centre",detail:"FROM",price:"£METER"},
-{journey:"Carmarthen Town Centre to University",detail:"FROM",price:"£METER"},
+{journey:"Carmarthen to Tenby",detail:"FROM",price:"£55.00"},
+{journey:"Carmarthen Railway Station to Pendine",detail:"FROM",price:"£45.00"},
+{journey:"Carmarthen to pembroke",detail:"FROM",price:"£70.00"},
 {journey:"Carmarthen to St Clears",detail:"FROM",price:"£20.00"},
 {journey:"Carmarthen to Whitland",detail:"FROM",price:"£30.00"},
 {journey:"Carmarthen to Llanelli",detail:"FROM",price:"£40.00"},
