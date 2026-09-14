@@ -21,7 +21,8 @@ body {
     font-family: Inter, system-ui, sans-serif;
     color: var(--text);
     background: radial-gradient(circle at 80% 15%, rgba(239, 32, 45, .14), transparent 30%), linear-gradient(#09090c, #050506);
-    min-height: 100vh
+    min-height: 100vh;
+    overflow-x: hidden
 }
 
 a {
@@ -195,14 +196,46 @@ h1 {
     background: linear-gradient(26deg, transparent 47%, rgba(255, 255, 255, .08) 49%, rgba(255, 255, 255, .08) 51%, transparent 53%), linear-gradient(112deg, transparent 45%, rgba(255, 255, 255, .06) 47%, rgba(255, 255, 255, .06) 50%, transparent 52%), #20232a
 }
 
-.map-logo {
+.map-brand {
     position: absolute;
     top: 20px;
     left: 20px;
-    width: 120px;
     background: rgba(0, 0, 0, .72);
-    padding: 8px;
-    border-radius: 15px
+    padding: 8px 12px;
+    border-radius: 15px;
+    font-size: .86rem;
+    font-weight: 950;
+    letter-spacing: .16em;
+    z-index: 2
+}
+
+.map-road {
+    position: absolute;
+    height: 9px;
+    border: 2px solid rgba(255, 255, 255, .09);
+    border-width: 2px 0;
+    background: rgba(8, 9, 12, .26)
+}
+
+.road-one {
+    width: 130%;
+    left: -15%;
+    top: 30%;
+    transform: rotate(-17deg)
+}
+
+.road-two {
+    width: 115%;
+    left: -8%;
+    top: 69%;
+    transform: rotate(13deg)
+}
+
+.road-three {
+    width: 90%;
+    left: 39%;
+    top: 48%;
+    transform: rotate(76deg)
 }
 
 .route {
@@ -290,6 +323,47 @@ h1 {
     color: var(--muted)
 }
 
+.trip-stop {
+    display: grid;
+    grid-template-columns: 16px minmax(0, 1fr);
+    gap: 11px;
+    align-items: center;
+    padding-top: 16px
+}
+
+.trip-stop + .trip-stop {
+    margin-top: 12px
+}
+
+.trip-stop small,
+.trip-stop strong {
+    display: block
+}
+
+.trip-stop small {
+    color: var(--muted);
+    font-size: .72rem;
+    margin-bottom: 3px
+}
+
+.trip-stop strong {
+    font-size: .9rem;
+    line-height: 1.25
+}
+
+.trip-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--red);
+    box-shadow: 0 0 0 4px rgba(239, 32, 45, .18)
+}
+
+.destination-stop .trip-dot {
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, .15)
+}
+
 .eta {
     display: flex;
     justify-content: space-between;
@@ -304,6 +378,386 @@ h1 {
 
 .eta span {
     color: var(--muted)
+}
+
+/* Homepage app preview */
+.phone {
+    width: 100%;
+    max-width: 398px;
+    min-width: 0;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, .2);
+    border-radius: 51px;
+    background: linear-gradient(145deg, #484950 0%, #18191e 18%, #050506 70%);
+    box-shadow: 0 42px 120px rgba(0, 0, 0, .72), 0 0 0 1px rgba(255, 255, 255, .05), inset 0 1px 1px rgba(255, 255, 255, .24)
+}
+
+.phone .phone-screen {
+    min-height: 0;
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 41px;
+    background: #0d0e12
+}
+
+.phone .phone-top {
+    position: relative;
+    height: 35px;
+    padding: 0 16px;
+    background: #08090c
+}
+
+.phone .notch {
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    width: 96px;
+    height: 22px;
+    transform: translateX(-50%);
+    border-radius: 15px;
+    background: #000
+}
+
+.phone-time,
+.phone-status {
+    position: absolute;
+    z-index: 1;
+    top: 11px;
+    font-size: .62rem;
+    font-weight: 800;
+    letter-spacing: .02em
+}
+
+.phone-time {
+    left: 19px
+}
+
+.phone-status {
+    right: 18px;
+    letter-spacing: .12em
+}
+
+.app-bar {
+    height: 50px;
+    display: grid;
+    grid-template-columns: 34px 1fr 34px;
+    align-items: center;
+    padding: 0 14px;
+    background: rgba(10, 11, 14, .98);
+    border-bottom: 1px solid rgba(255, 255, 255, .07)
+}
+
+.app-bar strong {
+    text-align: center;
+    color: #fff;
+    font-size: 1.02rem;
+    font-weight: 950;
+    letter-spacing: .2em;
+    padding-left: .2em
+}
+
+.app-menu,
+.app-avatar {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .075);
+    font-weight: 800
+}
+
+.app-menu {
+    font-size: 1.25rem;
+    line-height: 1;
+    transform: rotate(90deg)
+}
+
+.app-avatar {
+    color: #fff;
+    background: var(--red);
+    font-size: .76rem
+}
+
+.app-map {
+    position: relative;
+    height: 386px;
+    overflow: hidden;
+    background: #1b1d22
+}
+
+.carmarthen-map {
+    display: block;
+    width: 100%;
+    height: 100%
+}
+
+.map-river {
+    fill: none;
+    stroke: #213d4c;
+    stroke-width: 23;
+    stroke-linecap: round
+}
+
+.map-water-label {
+    fill: #7190a0;
+    font-size: 8px;
+    font-style: italic;
+    letter-spacing: .08em
+}
+
+.minor-roads path,
+.major-roads path {
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round
+}
+
+.minor-roads path {
+    stroke: #34373e;
+    stroke-width: 5
+}
+
+.minor-roads path:nth-child(2n) {
+    stroke-width: 3
+}
+
+.major-roads path {
+    stroke: #555960;
+    stroke-width: 10
+}
+
+.major-roads path::selection,
+.minor-roads path::selection {
+    background: transparent
+}
+
+.map-blocks {
+    fill: #25282e;
+    stroke: #3a3d44;
+    stroke-width: 1
+}
+
+.map-place,
+.map-street,
+.road-label {
+    fill: #a4a7ad;
+    paint-order: stroke;
+    stroke: #1b1d22;
+    stroke-width: 3px;
+    stroke-linejoin: round
+}
+
+.map-place {
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: .08em
+}
+
+.main-place {
+    fill: #d5d7dc;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: .16em
+}
+
+.map-street {
+    font-size: 6px
+}
+
+.road-label {
+    fill: #e6e7e9;
+    font-size: 7px;
+    font-weight: 900
+}
+
+.route-shadow,
+.route-line {
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round
+}
+
+.route-shadow {
+    stroke: rgba(0, 0, 0, .72);
+    stroke-width: 12
+}
+
+.route-line {
+    stroke: var(--red);
+    stroke-width: 6;
+    filter: url(#routeGlow)
+}
+
+.map-pin path {
+    stroke: #fff;
+    stroke-width: 2
+}
+
+.map-pin circle {
+    fill: #fff
+}
+
+.pickup-pin path {
+    fill: #111217
+}
+
+.destination-pin path {
+    fill: var(--red)
+}
+
+.pickup-pin circle {
+    fill: var(--red)
+}
+
+.taxi-halo {
+    fill: rgba(239, 32, 45, .2);
+    stroke: rgba(255, 255, 255, .8);
+    stroke-width: 1
+}
+
+.taxi-body {
+    fill: var(--red);
+    stroke: #fff;
+    stroke-width: 1
+}
+
+.taxi-window {
+    fill: #fff
+}
+
+.taxi-wheel {
+    fill: #101116;
+    stroke: #fff;
+    stroke-width: 1
+}
+
+.map-location {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    max-width: 154px;
+    padding: 7px 9px;
+    border: 1px solid rgba(255, 255, 255, .13);
+    border-radius: 10px;
+    color: #f6f6f7;
+    background: rgba(9, 10, 13, .9);
+    box-shadow: 0 7px 22px rgba(0, 0, 0, .35);
+    backdrop-filter: blur(8px);
+    font-size: .64rem;
+    line-height: 1.25
+}
+
+.station-label {
+    left: 11px;
+    bottom: 8px
+}
+
+.hospital-label {
+    top: 14px;
+    right: 9px
+}
+
+.location-dot {
+    flex: 0 0 auto;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%
+}
+
+.location-dot.pickup {
+    background: var(--red)
+}
+
+.location-dot.destination {
+    background: #fff;
+    box-shadow: 0 0 0 2px var(--red)
+}
+
+.phone .trip-card {
+    margin: -1px 0 0;
+    padding: 20px 21px 22px;
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 0;
+    background: linear-gradient(180deg, #131419, #0d0e12)
+}
+
+.driver-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 13px;
+    border: 1px solid rgba(239, 32, 45, .28);
+    border-radius: 14px;
+    color: #fff;
+    background: linear-gradient(100deg, rgba(239, 32, 45, .2), rgba(239, 32, 45, .06));
+    font-size: .82rem
+}
+
+.driver-pulse {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--red);
+    box-shadow: 0 0 0 0 rgba(239, 32, 45, .55);
+    animation: driverPulse 2s ease-out infinite
+}
+
+.phone .trip-stop {
+    grid-template-columns: 13px minmax(0, 1fr);
+    gap: 12px;
+    padding-top: 14px
+}
+
+.phone .trip-stop + .trip-stop {
+    margin-top: 7px
+}
+
+.phone .trip-stop small {
+    margin-bottom: 3px;
+    color: #8e9099;
+    font-size: .68rem;
+    font-weight: 750;
+    letter-spacing: .08em;
+    text-transform: uppercase
+}
+
+.phone .trip-stop strong {
+    color: #f7f7f8;
+    font-size: .84rem
+}
+
+.phone .eta {
+    align-items: end;
+    margin-top: 15px;
+    padding-top: 14px
+}
+
+.phone .eta span {
+    font-size: .74rem;
+    font-weight: 700
+}
+
+.phone .eta strong {
+    color: #fff;
+    font-size: 1.85rem;
+    line-height: 1
+}
+
+@keyframes driverPulse {
+    70% { box-shadow: 0 0 0 7px rgba(239, 32, 45, 0) }
+    100% { box-shadow: 0 0 0 0 rgba(239, 32, 45, 0) }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    .taxi-marker animateMotion {
+        display: none
+    }
+
+    .driver-pulse {
+        animation: none
+    }
 }
 
 .page-hero {
@@ -511,11 +965,194 @@ footer {
         text-align: center
     }
 
+    .hero > * {
+        min-width: 0
+    }
+
     .actions {
         justify-content: center
     }
 
     .contact-grid {
         grid-template-columns: 1fr
+    }
+
+    .phone-screen {
+        min-height: 0
+    }
+}
+
+@media(max-width:430px) {
+    .container {
+        width: min(var(--max), calc(100% - 28px))
+    }
+
+    .nav {
+        min-height: 70px
+    }
+
+    .brand img {
+        width: 146px;
+        max-height: 48px;
+        object-fit: contain
+    }
+
+    .menu-button,
+    .nav-book,
+    .btn,
+    .contact-card {
+        min-height: 48px
+    }
+
+    .nav-links {
+        left: 14px;
+        right: 14px;
+        top: 64px;
+        max-height: calc(100vh - 78px);
+        overflow-y: auto;
+        align-items: stretch
+    }
+
+    .nav-links a {
+        padding: 10px 8px;
+        text-align: center
+    }
+
+    .hero {
+        min-height: auto;
+        gap: 36px;
+        padding: 52px 0 64px
+    }
+
+    h1,
+    .page-hero h1 {
+        font-size: clamp(2.55rem, 14vw, 4rem);
+        line-height: .94;
+        overflow-wrap: anywhere
+    }
+
+    .hero p,
+    .page-hero p {
+        font-size: 1rem
+    }
+
+    .actions {
+        gap: 10px;
+        margin-top: 26px
+    }
+
+    .actions .btn {
+        flex: 1 1 100%;
+        width: 100%;
+        padding-inline: 18px
+    }
+
+    .phone,
+    .price-phone {
+        padding: 8px;
+        border-radius: 34px
+    }
+
+    .phone-screen,
+    .price-screen {
+        border-radius: 27px
+    }
+
+    .map {
+        min-height: 315px
+    }
+
+    .route {
+        inset: 60px 40px 68px 65px
+    }
+
+    .pin.start {
+        left: 58px
+    }
+
+    .trip-card {
+        padding: 19px;
+        border-radius: 22px
+    }
+
+    .eta {
+        align-items: end;
+        gap: 12px
+    }
+
+    .eta strong {
+        font-size: 1.9rem
+    }
+
+    .page-hero {
+        padding: 60px 0 24px
+    }
+
+    .section {
+        padding: 34px 0 64px
+    }
+
+    .price-head,
+    .simple-card,
+    .contact-card,
+    .route-cta {
+        padding: 22px
+    }
+
+    .price-head h2,
+    .simple-card h2,
+    .seo-content h2 {
+        font-size: clamp(1.55rem, 8vw, 2rem);
+        overflow-wrap: anywhere
+    }
+
+    .price-row {
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 10px;
+        padding: 17px 10px
+    }
+
+    .price-row strong,
+    .price-row small,
+    .price {
+        overflow-wrap: anywhere
+    }
+
+    .price {
+        font-size: 1.05rem;
+        padding: 9px 8px
+    }
+
+    .breadcrumbs {
+        overflow-wrap: anywhere
+    }
+
+    .seo-content ul {
+        padding-left: 22px
+    }
+
+    .footer-row,
+    .footer-links {
+        justify-content: center;
+        text-align: center
+    }
+
+    .footer-links {
+        gap: 12px 16px
+    }
+}
+
+@media(max-width:350px) {
+    .map-label {
+        max-width: 122px;
+        font-size: .66rem
+    }
+
+    .hospital {
+        right: 10px
+    }
+
+    .station {
+        left: 10px
     }
 }

@@ -55,9 +55,106 @@
             >
           </div>
         </div>
-        <div class="hero-phone">
-          <img src="images/phoneapp.jpeg" alt="OZZO Taxi App">
-      </div>
+        <div class="phone" aria-label="OZZO booking app journey preview">
+          <div class="phone-screen">
+            <div class="phone-top">
+              <span class="phone-time">9:41</span>
+              <span class="notch"></span>
+              <span class="phone-status" aria-hidden="true">● ◔ ▰</span>
+            </div>
+            <div class="app-bar">
+              <span class="app-menu" aria-hidden="true">≡</span>
+              <strong>OZZO</strong>
+              <span class="app-avatar" aria-hidden="true">C</span>
+            </div>
+            <div class="app-map" aria-hidden="true">
+              <svg class="carmarthen-map" viewBox="0 0 360 390" role="img">
+                <title>Route from Carmarthen Railway Station to Glangwili General Hospital</title>
+                <defs>
+                  <filter id="routeGlow" x="-30%" y="-30%" width="160%" height="160%">
+                    <feGaussianBlur stdDeviation="3" result="blur" />
+                    <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+                  </filter>
+                  <path id="ozzoRoute" d="M78 342 C92 326 108 315 126 306 C143 297 151 280 145 262 C140 245 146 231 161 222 C180 211 186 196 181 178 C175 157 184 144 204 134 C224 124 236 112 241 94 C246 77 258 67 279 57" />
+                </defs>
+
+                <path class="map-river" d="M-20 324 C40 289 82 304 127 329 C169 352 224 358 286 337 C321 325 348 330 385 348" />
+                <text class="map-water-label" x="240" y="357">River Towy</text>
+
+                <g class="minor-roads">
+                  <path d="M-20 73 C49 92 101 86 153 60 C209 31 269 41 384 82" />
+                  <path d="M24 -12 C34 60 47 105 91 145 C122 173 123 214 103 260 C90 289 85 337 91 405" />
+                  <path d="M91 145 C145 133 182 115 228 78 C271 43 311 23 375 13" />
+                  <path d="M-8 210 C53 201 99 208 145 229 C199 254 256 248 376 202" />
+                  <path d="M-9 272 C56 263 111 274 155 298 C207 326 260 315 369 269" />
+                  <path d="M154 60 C160 114 153 155 132 190 C111 227 113 263 145 302" />
+                  <path d="M226 78 C234 125 255 159 293 190 C320 212 330 251 319 302" />
+                  <path d="M38 119 C83 114 114 121 146 143 C174 162 209 166 265 150" />
+                  <path d="M30 359 C119 351 191 360 251 387" />
+                </g>
+
+                <g class="major-roads">
+                  <path d="M-25 181 C45 171 98 177 143 193 C184 208 218 200 247 179 C281 154 319 146 385 158" />
+                  <path d="M58 408 C65 348 83 315 119 288 C149 266 175 249 184 213 C195 167 222 132 286 93 C319 73 341 43 361 -12" />
+                  <path d="M-16 307 C48 291 101 292 151 315 C205 340 255 337 381 295" />
+                </g>
+
+                <g class="map-blocks">
+                  <path d="M115 235h35v20h-35zM163 233h29v24h-29zM201 213h38v21h-38zM70 220h26v19H70z" />
+                  <path d="M170 273h36v20h-36zM216 255h29v17h-29zM252 229h36v21h-36z" />
+                </g>
+
+                <text class="map-place main-place" x="145" y="187">CARMARTHEN</text>
+                <text class="map-place" x="25" y="166">Johnstown</text>
+                <text class="map-place" x="257" y="139">Abergwili</text>
+                <text class="road-label" x="12" y="195">A40</text>
+                <text class="road-label" x="194" y="148">A485</text>
+                <text class="road-label" x="105" y="311">A484</text>
+                <text class="map-street" x="185" y="287">Spilman Street</text>
+                <text class="map-street" x="211" y="198">Parcmaen Street</text>
+
+                <use href="#ozzoRoute" class="route-shadow" />
+                <use href="#ozzoRoute" class="route-line" />
+
+                <g class="map-pin pickup-pin" transform="translate(78 342)">
+                  <path d="M0 9C-13-8-18-17-18-28a18 18 0 1 1 36 0C18-17 13-8 0 9Z" />
+                  <circle cy="-28" r="6" />
+                </g>
+                <g class="map-pin destination-pin" transform="translate(279 57)">
+                  <path d="M0 9C-13-8-18-17-18-28a18 18 0 1 1 36 0C18-17 13-8 0 9Z" />
+                  <circle cy="-28" r="6" />
+                </g>
+
+                <g class="taxi-marker">
+                  <animateMotion dur="5.5s" repeatCount="indefinite" rotate="auto" keyPoints=".42;.58;.42" keyTimes="0;.5;1" calcMode="spline" keySplines=".4 0 .2 1;.4 0 .2 1">
+                    <mpath href="#ozzoRoute" />
+                  </animateMotion>
+                  <circle r="17" class="taxi-halo" />
+                  <g transform="translate(-11 -7)">
+                    <path class="taxi-body" d="M2 5 6 0h10l5 5 2 2v8H0V7Z" />
+                    <path class="taxi-window" d="m7 2-3 4h15l-4-4Z" />
+                    <circle class="taxi-wheel" cx="5" cy="15" r="2.5" />
+                    <circle class="taxi-wheel" cx="18" cy="15" r="2.5" />
+                  </g>
+                </g>
+              </svg>
+              <div class="map-location station-label"><span class="location-dot pickup"></span><strong>Carmarthen<br />Railway Station</strong></div>
+              <div class="map-location hospital-label"><span class="location-dot destination"></span><strong>Glangwili General<br />Hospital</strong></div>
+            </div>
+            <div class="trip-card">
+              <div class="driver-status"><span class="driver-pulse"></span><strong>Driver with you in 3 mins</strong></div>
+              <div class="trip-stop pickup-stop">
+                <span class="trip-dot"></span>
+                <div><small>Pickup</small><strong>Carmarthen Railway Station</strong></div>
+              </div>
+              <div class="trip-stop destination-stop">
+                <span class="trip-dot"></span>
+                <div><small>Destination</small><strong>Glangwili General Hospital</strong></div>
+              </div>
+              <div class="eta"><span>Estimated fare</span><strong>£5.00</strong></div>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
     <footer>
