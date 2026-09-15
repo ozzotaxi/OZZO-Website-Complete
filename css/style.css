@@ -615,26 +615,27 @@ h1 {
     fill: var(--red)
 }
 
-.taxi-halo {
-    fill: rgba(255, 255, 255, .82);
-    stroke: rgba(239, 32, 45, .38);
-    stroke-width: 1
+.taxi-shadow {
+    fill: rgba(0, 0, 0, .25);
+    filter: blur(1.4px)
 }
 
 .taxi-body {
-    fill: #fff;
-    stroke: #1c1d20;
-    stroke-width: 1.2
+    fill: #17191d;
+    stroke: #fff;
+    stroke-width: 1.15
 }
 
 .taxi-window {
-    fill: #343940
+    fill: #8da8b5;
+    stroke: #d9e3e7;
+    stroke-width: .45
 }
 
 .taxi-roof {
     fill: var(--red);
-    stroke: #a60e18;
-    stroke-width: .8
+    stroke: #fff;
+    stroke-width: .55
 }
 
 .taxi-wheel {
@@ -643,6 +644,12 @@ h1 {
 
 .taxi-light {
     fill: #ffd85c
+}
+
+.taxi-detail {
+    fill: none;
+    stroke: rgba(255, 255, 255, .55);
+    stroke-width: .55
 }
 
 .map-location {
@@ -811,7 +818,8 @@ h1 {
         transform: translate(161px, 222px)
     }
 
-    .taxi-marker animateMotion {
+    .taxi-marker animateMotion,
+    .taxi-marker > animate {
         display: none
     }
 
