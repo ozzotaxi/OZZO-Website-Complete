@@ -98,6 +98,8 @@ const GOOGLE_MAPS_API_KEY = "AIzaSyBSUexy01jGVSWtkAHym1pjbXjRMKaujGM";
   const message = document.querySelector("[data-quote-message]");
   const result = document.querySelector("[data-quote-result]");
   const routeSummary = document.querySelector("[data-route-summary]");
+  const pickupInput = document.querySelector("#pickup-fallback");
+  const destinationInput = document.querySelector("#destination-fallback");
   const dateInput = document.querySelector("#quote-date");
   const timeInput = document.querySelector("#quote-time");
   const holidayPromise = getBankHolidays().then((holidays) => {
@@ -146,26 +148,75 @@ const GOOGLE_MAPS_API_KEY = "AIzaSyBSUexy01jGVSWtkAHym1pjbXjRMKaujGM";
     return marker;
   }
 
-  function addAutocomplete(holder, kind) {
-    const autocomplete = new google.maps.places.PlaceAutocompleteElement({
-      includedRegionCodes: ["gb"],
-      locationBias: { center: { lat: 51.856, lng: -4.31 }, radius: 50000 }
-    });
-    autocomplete.setAttribute("aria-label", kind === "pickup" ? "Pickup address" : "Destination address");
-    autocomplete.setAttribute("placeholder", "Search for an address");
-    holder.replaceChildren(autocomplete);
-    autocomplete.addEventListener("gmp-select", async (event) => {
-      const place = event.placePrediction.toPlace();
+  function addAutocomplete(input, kind) {
+    const suggestionsList = document.createElement("ul");
+    suggestionsList.className = "quote-suggestions";
+    suggestionsList.setAttribute("role", "listbox");
+    suggestionsList.hidden = true;
+    input.parentElement.appendChild(suggestionsList);
+    let requestId = 0;
+    let sessionToken = new google.maps.places.AutocompleteSessionToken();
+
+    function hideSuggestions() {
+      suggestionsList.hidden = true;
+      suggestionsList.replaceChildren();
+    }
+
+    async function selectPrediction(prediction) {
+      const place = prediction.toPlace();
       await place.fetchFields({ fields: ["displayName", "formattedAddress", "location"] });
       state[kind] = place;
+      input.value = prediction.text.toString();
+      sessionToken = new google.maps.places.AutocompleteSessionToken();
+      hideSuggestions();
       result.hidden = true;
       setMessage("", "");
+    }
+
+    input.addEventListener("input", async () => {
+      state[kind] = null;
+      result.hidden = true;
+      const inputValue = input.value.trim();
+      const currentRequest = ++requestId;
+      if (inputValue.length < 2) {
+        hideSuggestions();
+        return;
+      }
+      try {
+        const { suggestions } = await google.maps.places.AutocompleteSuggestion.fetchAutocompleteSuggestions({
+          input: inputValue,
+          includedRegionCodes: ["gb"],
+          locationBias: { center: { lat: 51.856, lng: -4.31 }, radius: 50000 },
+          language: "en-GB",
+          region: "gb",
+          sessionToken
+        });
+        if (currentRequest !== requestId) return;
+        const options = suggestions.flatMap((suggestion) => suggestion.placePrediction ? [suggestion.placePrediction] : []);
+        suggestionsList.replaceChildren(...options.map((prediction) => {
+          const item = document.createElement("li");
+          const button = document.createElement("button");
+          button.type = "button";
+          button.textContent = prediction.text.toString();
+          button.addEventListener("mousedown", (event) => event.preventDefault());
+          button.addEventListener("click", () => void selectPrediction(prediction));
+          item.appendChild(button);
+          return item;
+        }));
+        suggestionsList.hidden = options.length === 0;
+      } catch (_error) {
+        if (currentRequest === requestId) hideSuggestions();
+      }
     });
+    input.addEventListener("blur", () => global.setTimeout(hideSuggestions, 150));
   }
 
   function initialiseQuoteMap() {
     if (typeof google?.maps?.Map !== "function") throw new Error("Google Maps did not initialise correctly.");
-    if (typeof google.maps.places?.PlaceAutocompleteElement !== "function") throw new Error("Google Places did not initialise correctly.");
+    if (typeof google.maps.places?.AutocompleteSuggestion?.fetchAutocompleteSuggestions !== "function"
+      || typeof google.maps.places?.AutocompleteSessionToken !== "function") {
+      throw new Error("Google Places did not initialise correctly.");
+    }
     if (typeof google.maps.routes?.Route?.computeRoutes !== "function") throw new Error("Google Routes did not initialise correctly.");
 
     state.map = new google.maps.Map(document.querySelector("#quote-map"), {
@@ -185,12 +236,12 @@ const GOOGLE_MAPS_API_KEY = "AIzaSyBSUexy01jGVSWtkAHym1pjbXjRMKaujGM";
       ]
     });
     document.querySelector("[data-map-placeholder]").hidden = true;
-    addAutocomplete(document.querySelector("[data-pickup-autocomplete]"), "pickup");
-    addAutocomplete(document.querySelector("[data-destination-autocomplete]"), "destination");
+    addAutocomplete(pickupInput, "pickup");
+    addAutocomplete(destinationInput, "destination");
   }
 
   function loadGoogleMaps() {
-    if (GOOGLE_MAPS_API_KEY === "AIzaSyBSUexy01jGVSWtkAHym1pjbXjRMKaujGM" || !GOOGLE_MAPS_API_KEY.trim()) {
+    if (GOOGLE_MAPS_API_KEY === "PUT_GOOGLE_API_KEY_HERE" || !GOOGLE_MAPS_API_KEY.trim()) {
       setMessage("Add the Google Maps browser API key in js/quote.js to enable quotes.", "setup");
       return;
     }
@@ -212,7 +263,9 @@ const GOOGLE_MAPS_API_KEY = "AIzaSyBSUexy01jGVSWtkAHym1pjbXjRMKaujGM";
   async function calculateRoute(event) {
     event.preventDefault();
     result.hidden = true;
-    const inputError = quoteInputError(state.map, state.pickup, state.destination, dateInput.value, timeInput.value);
+    const pickupAddress = pickupInput.value.trim();
+    const destinationAddress = destinationInput.value.trim();
+    const inputError = quoteInputError(state.map, pickupAddress, destinationAddress, dateInput.value, timeInput.value);
     if (inputError) {
       setMessage(inputError, "error");
       return;
@@ -226,8 +279,8 @@ const GOOGLE_MAPS_API_KEY = "AIzaSyBSUexy01jGVSWtkAHym1pjbXjRMKaujGM";
 
     try {
       const response = await google.maps.routes.Route.computeRoutes({
-        origin: state.pickup,
-        destination: state.destination,
+        origin: state.pickup?.geometry?.location || pickupAddress,
+        destination: state.destination?.geometry?.location || destinationAddress,
         travelMode: "DRIVING",
         routingPreference: "TRAFFIC_UNAWARE",
         fields: ["path", "distanceMeters", "durationMillis", "viewport"]
@@ -257,8 +310,8 @@ const GOOGLE_MAPS_API_KEY = "AIzaSyBSUexy01jGVSWtkAHym1pjbXjRMKaujGM";
       document.querySelector("[data-fare]").textContent = `£${fare.toFixed(2)}`;
       document.querySelector("[data-result-distance]").textContent = `${miles.toFixed(1)} miles`;
       document.querySelector("[data-result-duration]").textContent = `Approx. ${minutes} mins`;
-      document.querySelector("[data-result-pickup]").textContent = state.pickup.formattedAddress || state.pickup.displayName;
-      document.querySelector("[data-result-destination]").textContent = state.destination.formattedAddress || state.destination.displayName;
+      document.querySelector("[data-result-pickup]").textContent = pickupAddress;
+      document.querySelector("[data-result-destination]").textContent = destinationAddress;
       routeSummary.hidden = false;
       result.hidden = false;
       const holidayDataCoversDate = state.holidays.available && state.holidays.years.has(dateInput.value.slice(0, 4));

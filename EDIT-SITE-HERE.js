@@ -12,7 +12,7 @@ const AIRPORT_PRICES=[
 ];
 const LOCAL_PRICES=[
 {journey:"Carmarthen to Tenby",detail:"FROM",price:"£55.00"},
-{journey:"Carmarthen Railway Station to Pendine",detail:"FROM",price:"£45.00"},
+{journey:"Carmarthen to Pendine",detail:"FROM",price:"£45.00"},
 {journey:"Carmarthen to pembroke",detail:"FROM",price:"£70.00"},
 {journey:"Carmarthen to St Clears",detail:"FROM",price:"£20.00"},
 {journey:"Carmarthen to Whitland",detail:"FROM",price:"£30.00"},

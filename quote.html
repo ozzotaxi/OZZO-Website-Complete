@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="css/style.css" />
     <script src="EDIT-SITE-HERE.js"></script>
     <script defer src="js/main.js"></script>
-    <script defer src="js/quote.js?v=2"></script>
+    <script defer src="js/quote.js?v=3"></script>
   </head>
   <body>
     <header class="site-header">
@@ -71,13 +71,13 @@
               <div class="quote-field quote-address-field">
                 <label for="pickup-fallback">Pickup</label>
                 <div class="quote-autocomplete" data-pickup-autocomplete>
-                  <input id="pickup-fallback" type="text" placeholder="Google address search" disabled />
+                  <input id="pickup-fallback" name="pickup" type="text" placeholder="Enter pickup address" autocomplete="off" required />
                 </div>
               </div>
               <div class="quote-field quote-address-field">
                 <label for="destination-fallback">Destination</label>
                 <div class="quote-autocomplete" data-destination-autocomplete>
-                  <input id="destination-fallback" type="text" placeholder="Google address search" disabled />
+                  <input id="destination-fallback" name="destination" type="text" placeholder="Enter destination address" autocomplete="off" required />
                 </div>
               </div>
               <div class="quote-date-row">
