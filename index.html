@@ -69,17 +69,17 @@
             </div>
             <div class="app-map" aria-hidden="true">
               <svg class="carmarthen-map" viewBox="0 0 360 390" role="img">
-                <title>Route from Carmarthen Railway Station to Glangwili General Hospital</title>
+                <title>OZZO journey from Carmarthen Railway Station to Glangwili Hospital</title>
                 <defs>
                   <filter id="routeGlow" x="-30%" y="-30%" width="160%" height="160%">
-                    <feGaussianBlur stdDeviation="3" result="blur" />
+                    <feGaussianBlur stdDeviation="1.5" result="blur" />
                     <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
                   </filter>
-                  <path id="ozzoRoute" d="M78 342 C92 326 108 315 126 306 C143 297 151 280 145 262 C140 245 146 231 161 222 C180 211 186 196 181 178 C175 157 184 144 204 134 C224 124 236 112 241 94 C246 77 258 67 279 57" />
+                  <path id="ozzoRoute" d="M64 316.3 L78.3 303.1 L80.4 317.6 L99.3 316.7 L105.2 309.7 L119 271.2 L126.1 257 L180.7 194.7 L200.4 178.5 L244.3 153.6 L294 111.6 L296 103.9 L292.5 89.4 L278.4 55 L273.8 56.5 L264.7 75.4 L246.5 101.4 L251.4 104.9 L261.3 104.6 L261.7 110.4 L255.3 110.9" />
                 </defs>
 
                 <path class="map-river" d="M-20 324 C40 289 82 304 127 329 C169 352 224 358 286 337 C321 325 348 330 385 348" />
-                <text class="map-water-label" x="240" y="357">River Towy</text>
+                <text class="map-water-label" x="238" y="357">River Towy / Afon Tywi</text>
 
                 <g class="minor-roads">
                   <path d="M-20 73 C49 92 101 86 153 60 C209 31 269 41 384 82" />
@@ -107,49 +107,59 @@
                 <text class="map-place main-place" x="145" y="187">CARMARTHEN</text>
                 <text class="map-place" x="25" y="166">Johnstown</text>
                 <text class="map-place" x="257" y="139">Abergwili</text>
+                <text class="map-place" x="261" y="286">Tanerdy</text>
+                <text class="map-place" x="37" y="103">Pensarn</text>
                 <text class="road-label" x="12" y="195">A40</text>
-                <text class="road-label" x="194" y="148">A485</text>
+                <text class="road-label" x="196" y="148">A40</text>
                 <text class="road-label" x="105" y="311">A484</text>
                 <text class="map-street" x="185" y="287">Spilman Street</text>
-                <text class="map-street" x="211" y="198">Parcmaen Street</text>
+                <text class="map-street" x="211" y="198">Parcmaen St</text>
 
+                <use href="#ozzoRoute" class="route-road-casing" />
+                <use href="#ozzoRoute" class="route-road" />
                 <use href="#ozzoRoute" class="route-shadow" />
                 <use href="#ozzoRoute" class="route-line" />
 
-                <g class="map-pin pickup-pin" transform="translate(78 342)">
+                <g class="map-pin pickup-pin" transform="translate(64 316.3)">
                   <path d="M0 9C-13-8-18-17-18-28a18 18 0 1 1 36 0C18-17 13-8 0 9Z" />
                   <circle cy="-28" r="6" />
                 </g>
-                <g class="map-pin destination-pin" transform="translate(279 57)">
+                <g class="map-pin destination-pin" transform="translate(255.3 110.9)">
                   <path d="M0 9C-13-8-18-17-18-28a18 18 0 1 1 36 0C18-17 13-8 0 9Z" />
                   <circle cy="-28" r="6" />
                 </g>
 
                 <g class="taxi-marker">
-                  <animateMotion dur="5.5s" repeatCount="indefinite" rotate="auto" keyPoints=".42;.58;.42" keyTimes="0;.5;1" calcMode="spline" keySplines=".4 0 .2 1;.4 0 .2 1">
+                  <animateMotion dur="7s" repeatCount="indefinite" rotate="auto" keyPoints=".34;.72;.34" keyTimes="0;.58;1" calcMode="spline" keySplines=".4 0 .2 1;.4 0 .2 1">
                     <mpath href="#ozzoRoute" />
                   </animateMotion>
-                  <circle r="17" class="taxi-halo" />
-                  <g transform="translate(-11 -7)">
-                    <path class="taxi-body" d="M2 5 6 0h10l5 5 2 2v8H0V7Z" />
-                    <path class="taxi-window" d="m7 2-3 4h15l-4-4Z" />
-                    <circle class="taxi-wheel" cx="5" cy="15" r="2.5" />
-                    <circle class="taxi-wheel" cx="18" cy="15" r="2.5" />
+                  <circle r="18" class="taxi-halo" />
+                  <g class="ozzo-car" transform="translate(-9 -16)">
+                    <rect class="taxi-wheel" x="-2" y="5" width="3" height="7" rx="1.5" />
+                    <rect class="taxi-wheel" x="17" y="5" width="3" height="7" rx="1.5" />
+                    <rect class="taxi-wheel" x="-2" y="21" width="3" height="7" rx="1.5" />
+                    <rect class="taxi-wheel" x="17" y="21" width="3" height="7" rx="1.5" />
+                    <path class="taxi-body" d="M4 1h10l3 7v18l-3 5H4l-3-5V8Z" />
+                    <path class="taxi-window front" d="m4 8 2-4h6l2 4-1 4H5Z" />
+                    <path class="taxi-roof" d="M4.5 13h9v9h-9z" />
+                    <path class="taxi-window rear" d="m5 23h8l1 4H4Z" />
+                    <path class="taxi-light" d="M3 3h3v1.5H3zm9 0h3v1.5h-3z" />
                   </g>
                 </g>
               </svg>
-              <div class="map-location station-label"><span class="location-dot pickup"></span><strong>Carmarthen<br />Railway Station</strong></div>
-              <div class="map-location hospital-label"><span class="location-dot destination"></span><strong>Glangwili General<br />Hospital</strong></div>
+              <div class="map-location station-label"><span class="location-dot pickup"></span><span><small>Pick-up</small><strong>Carmarthen<br />Railway Station</strong></span></div>
+              <div class="map-location hospital-label"><span class="location-dot destination"></span><span><small>Drop-off</small><strong>Glangwili<br />Hospital</strong></span></div>
+              <div class="map-eta"><strong>9</strong><span>min</span></div>
             </div>
             <div class="trip-card">
-              <div class="driver-status"><span class="driver-pulse"></span><strong>Driver with you in 3 mins</strong></div>
+              <div class="driver-status"><span class="driver-pulse"></span><strong>Driver on route</strong><span>9 min</span></div>
               <div class="trip-stop pickup-stop">
                 <span class="trip-dot"></span>
-                <div><small>Pickup</small><strong>Carmarthen Railway Station</strong></div>
+                <div><small>Pick-up</small><strong>Carmarthen Railway Station</strong></div>
               </div>
               <div class="trip-stop destination-stop">
                 <span class="trip-dot"></span>
-                <div><small>Destination</small><strong>Glangwili General Hospital</strong></div>
+                <div><small>Drop-off</small><strong>Glangwili Hospital</strong></div>
               </div>
               <div class="eta"><span>Estimated fare</span><strong>£5.00</strong></div>
             </div>

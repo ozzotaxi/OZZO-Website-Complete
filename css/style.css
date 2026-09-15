@@ -442,13 +442,13 @@ h1 {
     grid-template-columns: 34px 1fr 34px;
     align-items: center;
     padding: 0 14px;
-    background: rgba(10, 11, 14, .98);
+    background: #fff;
     border-bottom: 1px solid rgba(255, 255, 255, .07)
 }
 
 .app-bar strong {
     text-align: center;
-    color: #fff;
+    color: var(--red);
     font-size: 1.02rem;
     font-weight: 950;
     letter-spacing: .2em;
@@ -462,7 +462,8 @@ h1 {
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, .075);
+    color: #25262b;
+    background: #f0f1f3;
     font-weight: 800
 }
 
@@ -482,7 +483,7 @@ h1 {
     position: relative;
     height: 386px;
     overflow: hidden;
-    background: #1b1d22
+    background: #e8ebe7
 }
 
 .carmarthen-map {
@@ -493,13 +494,13 @@ h1 {
 
 .map-river {
     fill: none;
-    stroke: #213d4c;
+    stroke: #b7dce7;
     stroke-width: 23;
     stroke-linecap: round
 }
 
 .map-water-label {
-    fill: #7190a0;
+    fill: #5f93a4;
     font-size: 8px;
     font-style: italic;
     letter-spacing: .08em
@@ -513,8 +514,9 @@ h1 {
 }
 
 .minor-roads path {
-    stroke: #34373e;
-    stroke-width: 5
+    stroke: #fff;
+    stroke-width: 6;
+    filter: drop-shadow(0 0 1px #b8bcb8)
 }
 
 .minor-roads path:nth-child(2n) {
@@ -522,8 +524,9 @@ h1 {
 }
 
 .major-roads path {
-    stroke: #555960;
-    stroke-width: 10
+    stroke: #fff4c8;
+    stroke-width: 11;
+    filter: drop-shadow(0 0 1px #c7c0a5)
 }
 
 .major-roads path::selection,
@@ -532,17 +535,17 @@ h1 {
 }
 
 .map-blocks {
-    fill: #25282e;
-    stroke: #3a3d44;
+    fill: #d8ded6;
+    stroke: #c9d0c7;
     stroke-width: 1
 }
 
 .map-place,
 .map-street,
 .road-label {
-    fill: #a4a7ad;
+    fill: #68706d;
     paint-order: stroke;
-    stroke: #1b1d22;
+    stroke: #eef0ec;
     stroke-width: 3px;
     stroke-linejoin: round
 }
@@ -554,7 +557,7 @@ h1 {
 }
 
 .main-place {
-    fill: #d5d7dc;
+    fill: #323735;
     font-size: 10px;
     font-weight: 900;
     letter-spacing: .16em
@@ -565,11 +568,13 @@ h1 {
 }
 
 .road-label {
-    fill: #e6e7e9;
+    fill: #536966;
     font-size: 7px;
     font-weight: 900
 }
 
+.route-road-casing,
+.route-road,
 .route-shadow,
 .route-line {
     fill: none;
@@ -577,14 +582,24 @@ h1 {
     stroke-linejoin: round
 }
 
+.route-road-casing {
+    stroke: #c9ccc8;
+    stroke-width: 17
+}
+
+.route-road {
+    stroke: #fff;
+    stroke-width: 14
+}
+
 .route-shadow {
-    stroke: rgba(0, 0, 0, .72);
-    stroke-width: 12
+    stroke: rgba(255, 255, 255, .9);
+    stroke-width: 11
 }
 
 .route-line {
     stroke: var(--red);
-    stroke-width: 6;
+    stroke-width: 6.5;
     filter: url(#routeGlow)
 }
 
@@ -598,7 +613,7 @@ h1 {
 }
 
 .pickup-pin path {
-    fill: #111217
+    fill: var(--red)
 }
 
 .destination-pin path {
@@ -610,25 +625,33 @@ h1 {
 }
 
 .taxi-halo {
-    fill: rgba(239, 32, 45, .2);
-    stroke: rgba(255, 255, 255, .8);
+    fill: rgba(255, 255, 255, .82);
+    stroke: rgba(239, 32, 45, .38);
     stroke-width: 1
 }
 
 .taxi-body {
-    fill: var(--red);
-    stroke: #fff;
-    stroke-width: 1
+    fill: #fff;
+    stroke: #1c1d20;
+    stroke-width: 1.2
 }
 
 .taxi-window {
-    fill: #fff
+    fill: #343940
+}
+
+.taxi-roof {
+    fill: var(--red);
+    stroke: #a60e18;
+    stroke-width: .8
 }
 
 .taxi-wheel {
-    fill: #101116;
-    stroke: #fff;
-    stroke-width: 1
+    fill: #141519
+}
+
+.taxi-light {
+    fill: #ffd85c
 }
 
 .map-location {
@@ -638,14 +661,24 @@ h1 {
     gap: 7px;
     max-width: 154px;
     padding: 7px 9px;
-    border: 1px solid rgba(255, 255, 255, .13);
+    border: 1px solid rgba(0, 0, 0, .1);
     border-radius: 10px;
-    color: #f6f6f7;
-    background: rgba(9, 10, 13, .9);
-    box-shadow: 0 7px 22px rgba(0, 0, 0, .35);
+    color: #191a1e;
+    background: rgba(255, 255, 255, .94);
+    box-shadow: 0 7px 22px rgba(39, 42, 39, .18);
     backdrop-filter: blur(8px);
     font-size: .64rem;
     line-height: 1.25
+}
+
+.map-location small {
+    display: block;
+    margin-bottom: 2px;
+    color: var(--red);
+    font-size: .5rem;
+    font-weight: 900;
+    letter-spacing: .09em;
+    text-transform: uppercase
 }
 
 .station-label {
@@ -670,8 +703,33 @@ h1 {
 }
 
 .location-dot.destination {
-    background: #fff;
+    background: var(--red);
     box-shadow: 0 0 0 2px var(--red)
+}
+
+.map-eta {
+    position: absolute;
+    right: 13px;
+    bottom: 73px;
+    display: flex;
+    align-items: baseline;
+    gap: 3px;
+    padding: 7px 9px;
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: 11px;
+    color: #fff;
+    background: #17181c;
+    box-shadow: 0 7px 20px rgba(0, 0, 0, .2)
+}
+
+.map-eta strong {
+    color: var(--red);
+    font-size: 1rem
+}
+
+.map-eta span {
+    font-size: .62rem;
+    font-weight: 800
 }
 
 .phone .trip-card {
@@ -693,6 +751,13 @@ h1 {
     color: #fff;
     background: linear-gradient(100deg, rgba(239, 32, 45, .2), rgba(239, 32, 45, .06));
     font-size: .82rem
+}
+
+.driver-status > span:last-child {
+    margin-left: auto;
+    color: #ff7079;
+    font-size: .76rem;
+    font-weight: 900
 }
 
 .driver-pulse {
@@ -751,6 +816,10 @@ h1 {
 }
 
 @media(prefers-reduced-motion:reduce) {
+    .taxi-marker {
+        transform: translate(161px, 222px)
+    }
+
     .taxi-marker animateMotion {
         display: none
     }
@@ -1708,8 +1777,28 @@ footer {
     }
 
     .quote-date-row {
-        grid-template-columns: 1fr;
-        gap: 16px
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 10px
+    }
+
+    .quote-date-row .quote-field {
+        min-width: 0;
+        max-width: 100%
+    }
+
+    .quote-date-row input[type="date"],
+    .quote-date-row input[type="time"] {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        padding-inline: 7px;
+        text-align: center
+    }
+
+    .quote-date-row input::-webkit-date-and-time-value {
+        min-width: 0;
+        text-align: center
     }
 
     .quote-tariff,
