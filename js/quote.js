@@ -163,15 +163,12 @@ const GOOGLE_MAPS_API_KEY = "AIzaSyBSUexy01jGVSWtkAHym1pjbXjRMKaujGM";
     });
   }
 
-  async function initGoogleMaps() {
-    const [{ Map }, { PlaceAutocompleteElement }, { Route }] = await Promise.all([
-      google.maps.importLibrary("maps"),
-      google.maps.importLibrary("places"),
-      google.maps.importLibrary("routes")
-    ]);
-    void PlaceAutocompleteElement;
-    void Route;
-    state.map = new Map(document.querySelector("#quote-map"), {
+  function initialiseQuoteMap() {
+    if (typeof google?.maps?.Map !== "function") throw new Error("Google Maps did not initialise correctly.");
+    if (typeof google.maps.places?.PlaceAutocompleteElement !== "function") throw new Error("Google Places did not initialise correctly.");
+    if (typeof google.maps.routes?.Route?.computeRoutes !== "function") throw new Error("Google Routes did not initialise correctly.");
+
+    state.map = new google.maps.Map(document.querySelector("#quote-map"), {
       center: { lat: 51.856, lng: -4.31 },
       zoom: 12,
       disableDefaultUI: true,
@@ -192,21 +189,24 @@ const GOOGLE_MAPS_API_KEY = "AIzaSyBSUexy01jGVSWtkAHym1pjbXjRMKaujGM";
     addAutocomplete(document.querySelector("[data-destination-autocomplete]"), "destination");
   }
 
-  async function loadGoogleMaps() {
-    if (GOOGLE_MAPS_API_KEY === "PUT_GOOGLE_API_KEY_HERE" || !GOOGLE_MAPS_API_KEY.trim()) {
+  function loadGoogleMaps() {
+    if (GOOGLE_MAPS_API_KEY === "AIzaSyBSUexy01jGVSWtkAHym1pjbXjRMKaujGM" || !GOOGLE_MAPS_API_KEY.trim()) {
       setMessage("Add the Google Maps browser API key in js/quote.js to enable quotes.", "setup");
       return;
     }
     global.gm_authFailure = () => setMessage("Google Maps could not authenticate. Check the browser key and website restrictions.", "error");
-    await new Promise((resolve, reject) => {
-      const script = document.createElement("script");
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(GOOGLE_MAPS_API_KEY)}&v=weekly&loading=async`;
-      script.async = true;
-      script.onload = resolve;
-      script.onerror = () => reject(new Error("Google Maps could not load."));
-      document.head.appendChild(script);
-    });
-    await initGoogleMaps();
+    global.initialiseQuoteMap = () => {
+      try {
+        initialiseQuoteMap();
+      } catch (error) {
+        setMessage(error?.message || "Google Maps could not initialise.", "error");
+      }
+    };
+    const script = document.createElement("script");
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(GOOGLE_MAPS_API_KEY)}&v=weekly&loading=async&libraries=places,routes&callback=initialiseQuoteMap`;
+    script.async = true;
+    script.onerror = () => setMessage("Google Maps could not load.", "error");
+    document.head.appendChild(script);
   }
 
   async function calculateRoute(event) {
@@ -225,8 +225,7 @@ const GOOGLE_MAPS_API_KEY = "AIzaSyBSUexy01jGVSWtkAHym1pjbXjRMKaujGM";
     clearRoute();
 
     try {
-      const { Route } = await google.maps.importLibrary("routes");
-      const response = await Route.computeRoutes({
+      const response = await google.maps.routes.Route.computeRoutes({
         origin: state.pickup,
         destination: state.destination,
         travelMode: "DRIVING",
@@ -279,5 +278,5 @@ const GOOGLE_MAPS_API_KEY = "AIzaSyBSUexy01jGVSWtkAHym1pjbXjRMKaujGM";
 
   setInitialDateTime();
   form.addEventListener("submit", calculateRoute);
-  loadGoogleMaps().catch((error) => setMessage(error.message, "error"));
+  loadGoogleMaps();
 })(typeof window !== "undefined" ? window : globalThis);
