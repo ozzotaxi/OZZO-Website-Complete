@@ -938,6 +938,456 @@ footer {
     flex-wrap: wrap
 }
 
+/* Get a Quote */
+.quote-hero {
+    padding-bottom: 28px
+}
+
+.quote-hero h1 {
+    max-width: 980px;
+    margin-inline: auto
+}
+
+.quote-section {
+    padding-top: 20px
+}
+
+.quote-phone {
+    width: 100%;
+    max-width: 620px;
+    min-width: 0;
+    margin: 0 auto;
+    padding: 11px;
+    border: 1px solid rgba(255, 255, 255, .2);
+    border-radius: 52px;
+    background: linear-gradient(145deg, #484950 0%, #18191e 16%, #050506 74%);
+    box-shadow: 0 42px 120px rgba(0, 0, 0, .72), inset 0 1px 1px rgba(255, 255, 255, .22)
+}
+
+.quote-phone-screen {
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 41px;
+    background: #0d0e12
+}
+
+.quote-phone-top {
+    position: relative;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 22px;
+    background: #08090c;
+    font-size: .66rem;
+    font-weight: 800
+}
+
+.quote-notch {
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    width: 98px;
+    height: 22px;
+    transform: translateX(-50%);
+    border-radius: 15px;
+    background: #000
+}
+
+.quote-app-bar {
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 22px;
+    border-bottom: 1px solid rgba(255, 255, 255, .07);
+    background: #0a0b0e
+}
+
+.quote-app-bar span {
+    color: #a7a8af;
+    font-size: .75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .08em
+}
+
+.quote-app-bar strong {
+    font-size: 1rem;
+    font-weight: 950;
+    letter-spacing: .2em
+}
+
+.quote-map-wrap {
+    position: relative;
+    height: 310px;
+    background: #1b1d22
+}
+
+.quote-map {
+    width: 100%;
+    height: 100%
+}
+
+.quote-map-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 32px;
+    text-align: center;
+    background: radial-gradient(circle at 70% 25%, rgba(239, 32, 45, .16), transparent 30%), linear-gradient(25deg, transparent 47%, rgba(255, 255, 255, .055) 48%, rgba(255, 255, 255, .055) 50%, transparent 51%), linear-gradient(115deg, transparent 46%, rgba(255, 255, 255, .05) 47%, rgba(255, 255, 255, .05) 49%, transparent 50%), #1b1d22
+}
+
+.quote-map-placeholder[hidden] {
+    display: none
+}
+
+.quote-map-placeholder strong {
+    font-size: 1.05rem
+}
+
+.quote-map-placeholder small {
+    max-width: 370px;
+    color: #a9abb2;
+    line-height: 1.5
+}
+
+.map-placeholder-mark {
+    display: inline-flex;
+    padding: 9px 13px;
+    border-radius: 12px;
+    color: #fff;
+    background: var(--red);
+    font-size: .8rem;
+    font-weight: 950;
+    letter-spacing: .15em
+}
+
+.quote-route-summary {
+    position: absolute;
+    left: 14px;
+    bottom: 14px;
+    display: flex;
+    gap: 8px;
+    padding: 9px;
+    border: 1px solid rgba(255, 255, 255, .13);
+    border-radius: 13px;
+    background: rgba(8, 9, 12, .9);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, .38);
+    backdrop-filter: blur(9px)
+}
+
+.quote-route-summary[hidden] {
+    display: none
+}
+
+.quote-route-summary span {
+    padding: 2px 8px;
+    color: #a7a9b0;
+    font-size: .75rem
+}
+
+.quote-route-summary strong {
+    color: #fff
+}
+
+.quote-map-pin {
+    position: absolute;
+    width: 22px;
+    height: 30px;
+    border: 2px solid #fff;
+    border-radius: 50% 50% 50% 0;
+    background: #111217;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .45);
+    transform-origin: center bottom
+}
+
+.quote-map-pin::after {
+    content: "";
+    position: absolute;
+    inset: 7px;
+    border-radius: 50%;
+    background: var(--red)
+}
+
+.quote-map-pin.destination {
+    background: var(--red)
+}
+
+.quote-map-pin.destination::after {
+    background: #fff
+}
+
+.quote-form {
+    padding: 24px;
+    border-top: 1px solid rgba(255, 255, 255, .07);
+    background: linear-gradient(180deg, #131419, #0d0e12)
+}
+
+.quote-field {
+    min-width: 0
+}
+
+.quote-field + .quote-field,
+.quote-date-row,
+.quote-message,
+.quote-calculate {
+    margin-top: 16px
+}
+
+.quote-field label {
+    display: block;
+    margin-bottom: 7px;
+    color: #a8a9b0;
+    font-size: .72rem;
+    font-weight: 850;
+    letter-spacing: .09em;
+    text-transform: uppercase
+}
+
+.quote-field input,
+.quote-autocomplete gmp-place-autocomplete {
+    width: 100%;
+    min-width: 0;
+    min-height: 52px;
+    border: 1px solid rgba(255, 255, 255, .13);
+    border-radius: 14px;
+    color: #fff;
+    background: #18191e;
+    font: inherit
+}
+
+.quote-field input {
+    padding: 0 15px;
+    color-scheme: dark
+}
+
+.quote-field input:focus,
+.quote-autocomplete gmp-place-autocomplete:focus-within {
+    border-color: var(--red);
+    outline: 3px solid rgba(239, 32, 45, .18)
+}
+
+.quote-field input:disabled {
+    color: #777983;
+    opacity: 1
+}
+
+.quote-autocomplete gmp-place-autocomplete {
+    display: block;
+    --gmp-mat-color-surface: #18191e;
+    --gmp-mat-color-on-surface: #fff;
+    --gmp-mat-color-primary: #ef202d;
+    --gmp-mat-color-on-surface-variant: #a8a9b0
+}
+
+.quote-date-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px
+}
+
+.quote-date-row .quote-field + .quote-field {
+    margin-top: 0
+}
+
+.quote-message {
+    min-height: 1.35em;
+    margin-bottom: 0;
+    color: #a8a9b0;
+    font-size: .82rem;
+    line-height: 1.45
+}
+
+.quote-message[data-type="error"] {
+    color: #ff8a92
+}
+
+.quote-message[data-type="success"] {
+    color: #8fe3b0
+}
+
+.quote-message[data-type="warning"],
+.quote-message[data-type="setup"] {
+    color: #f4c76b
+}
+
+.quote-calculate {
+    width: 100%;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+    font: inherit;
+    font-size: 1rem
+}
+
+.quote-calculate:disabled {
+    cursor: wait;
+    opacity: .7
+}
+
+.quote-result {
+    padding: 0 24px 26px;
+    background: #0d0e12
+}
+
+.quote-result[hidden] {
+    display: none
+}
+
+.quote-tariff {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 15px;
+    border: 1px solid rgba(239, 32, 45, .3);
+    border-radius: 15px;
+    background: linear-gradient(100deg, rgba(239, 32, 45, .2), rgba(239, 32, 45, .05))
+}
+
+.quote-tariff strong {
+    flex: 0 0 auto;
+    color: #ff7c85;
+    font-size: .78rem;
+    letter-spacing: .09em
+}
+
+.quote-tariff span {
+    color: #d2d3d7;
+    font-size: .78rem;
+    text-align: right
+}
+
+.quote-result > p:not(.quote-disclaimer) {
+    margin: 22px 0 3px;
+    color: #a5a7af;
+    font-size: .82rem;
+    font-weight: 750
+}
+
+.quote-total {
+    color: #fff;
+    font-size: clamp(3rem, 12vw, 4.5rem);
+    font-weight: 950;
+    line-height: 1;
+    letter-spacing: -.045em
+}
+
+.quote-result-details {
+    margin: 25px 0 0
+}
+
+.quote-result-details div {
+    display: grid;
+    grid-template-columns: 130px minmax(0, 1fr);
+    gap: 16px;
+    padding: 13px 0;
+    border-top: 1px solid rgba(255, 255, 255, .08)
+}
+
+.quote-result-details dt {
+    color: #8f9199;
+    font-size: .73rem;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase
+}
+
+.quote-result-details dd {
+    margin: 0;
+    font-size: .86rem;
+    font-weight: 700;
+    overflow-wrap: anywhere
+}
+
+.quote-disclaimer {
+    color: #999ba3;
+    font-size: .76rem;
+    line-height: 1.55
+}
+
+.quote-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 20px
+}
+
+.quote-information {
+    max-width: 900px;
+    margin: 70px auto 0
+}
+
+.quote-information > h2,
+.quote-extras h2 {
+    font-size: clamp(1.8rem, 5vw, 2.6rem);
+    margin: 0 0 14px
+}
+
+.quote-information > p,
+.quote-extras p,
+.quote-extras li,
+.tariff-grid p {
+    color: var(--muted);
+    line-height: 1.75
+}
+
+.tariff-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin: 28px 0
+}
+
+.tariff-grid section,
+.quote-extras {
+    padding: 24px;
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, .04)
+}
+
+.tariff-grid span,
+.tariff-grid strong {
+    display: block
+}
+
+.tariff-grid span {
+    margin-bottom: 8px;
+    color: #ff7c85;
+    font-size: .75rem;
+    font-weight: 900;
+    letter-spacing: .09em;
+    text-transform: uppercase
+}
+
+.tariff-grid strong {
+    font-size: 1.25rem
+}
+
+.tariff-grid p {
+    margin-bottom: 0;
+    font-size: .92rem
+}
+
+.quote-extras {
+    margin-top: 34px
+}
+
+.quote-extras h2 {
+    font-size: 1.8rem
+}
+
+.quote-extras ul {
+    margin-bottom: 0;
+    padding-left: 22px
+}
+
 @media(max-width:850px) {
     .nav-links {
         display: none;
@@ -979,6 +1429,10 @@ footer {
 
     .phone-screen {
         min-height: 0
+    }
+
+    .tariff-grid {
+        grid-template-columns: 1fr
     }
 }
 
@@ -1095,7 +1549,9 @@ footer {
     .price-head,
     .simple-card,
     .contact-card,
-    .route-cta {
+    .route-cta,
+    .tariff-grid section,
+    .quote-extras {
         padding: 22px
     }
 
@@ -1139,6 +1595,63 @@ footer {
 
     .footer-links {
         gap: 12px 16px
+    }
+
+    .quote-phone {
+        padding: 7px;
+        border-radius: 36px
+    }
+
+    .quote-phone-screen {
+        border-radius: 29px
+    }
+
+    .quote-phone-top {
+        padding-inline: 16px
+    }
+
+    .quote-app-bar {
+        padding-inline: 17px
+    }
+
+    .quote-map-wrap {
+        height: 245px
+    }
+
+    .quote-form,
+    .quote-result {
+        padding-inline: 17px
+    }
+
+    .quote-date-row {
+        grid-template-columns: 1fr;
+        gap: 16px
+    }
+
+    .quote-tariff,
+    .quote-result-details div {
+        grid-template-columns: 1fr
+    }
+
+    .quote-tariff {
+        align-items: flex-start;
+        flex-direction: column
+    }
+
+    .quote-tariff span {
+        text-align: left
+    }
+
+    .quote-result-details div {
+        gap: 5px
+    }
+
+    .quote-actions {
+        grid-template-columns: 1fr
+    }
+
+    .quote-information {
+        margin-top: 50px
     }
 }
 

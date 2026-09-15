@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18378590692"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-18378590692');
+    </script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Taxi Fare Calculator Carmarthen | OZZO Taxi</title>
+    <meta name="description" content="Calculate an estimated Carmarthen taxi fare using Carmarthenshire Hackney Carriage meter tariffs and a Google Maps driving route." />
+    <link rel="canonical" href="https://www.ozzotaxi.com/quote.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Taxi Fare Calculator Carmarthen | OZZO Taxi" />
+    <meta property="og:description" content="Get an estimated taxi fare using Carmarthenshire's Hackney Carriage meter tariffs." />
+    <meta property="og:url" content="https://www.ozzotaxi.com/quote.html" />
+    <link rel="icon" href="images/favicon.svg" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="EDIT-SITE-HERE.js"></script>
+    <script defer src="js/main.js"></script>
+    <script defer src="js/quote.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="index.html"><img src="images/ozzo-logo.png" alt="OZZO Taxi" /></a
+        ><button class="menu-button">Menu</button>
+        <nav class="nav-links">
+          <a href="index.html">Home</a><a href="airport-prices.html">Airport Prices</a
+          ><a href="local-prices.html">Local Prices</a><a href="quote.html" aria-current="page">Get a Quote</a
+          ><a href="drive-with-us.html">Drive With Us</a><a href="contact.html">Contact</a
+          ><a class="nav-book" data-book-link href="#">Book Now</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="page-hero quote-hero container">
+        <span class="eyebrow">Plan your journey</span>
+        <h1>Taxi Fare Calculator Carmarthen.</h1>
+        <p>Get an estimated taxi fare using Carmarthenshire's Hackney Carriage meter tariffs.</p>
+      </section>
+
+      <section class="section quote-section container">
+        <div class="quote-phone" data-quote-app>
+          <div class="quote-phone-screen">
+            <div class="quote-phone-top" aria-hidden="true">
+              <span>9:41</span><span class="quote-notch"></span><span>● ◔ ▰</span>
+            </div>
+            <div class="quote-app-bar"><span>Fare estimate</span><strong>OZZO</strong></div>
+
+            <div class="quote-map-wrap">
+              <div id="quote-map" class="quote-map" aria-label="Interactive journey map"></div>
+              <div class="quote-map-placeholder" data-map-placeholder>
+                <span class="map-placeholder-mark">OZZO</span>
+                <strong>Google Maps setup required</strong>
+                <small>Add the browser API key in js/quote.js to enable the live map and address search.</small>
+              </div>
+              <div class="quote-route-summary" data-route-summary hidden>
+                <span><strong data-distance>—</strong> miles</span>
+                <span><strong data-duration>—</strong> mins</span>
+              </div>
+            </div>
+
+            <form class="quote-form" data-quote-form novalidate>
+              <div class="quote-field quote-address-field">
+                <label for="pickup-fallback">Pickup</label>
+                <div class="quote-autocomplete" data-pickup-autocomplete>
+                  <input id="pickup-fallback" type="text" placeholder="Google address search" disabled />
+                </div>
+              </div>
+              <div class="quote-field quote-address-field">
+                <label for="destination-fallback">Destination</label>
+                <div class="quote-autocomplete" data-destination-autocomplete>
+                  <input id="destination-fallback" type="text" placeholder="Google address search" disabled />
+                </div>
+              </div>
+              <div class="quote-date-row">
+                <div class="quote-field">
+                  <label for="quote-date">Date</label>
+                  <input id="quote-date" name="date" type="date" required />
+                </div>
+                <div class="quote-field">
+                  <label for="quote-time">Pickup time</label>
+                  <input id="quote-time" name="time" type="time" required />
+                </div>
+              </div>
+              <p class="quote-message" data-quote-message role="status" aria-live="polite"></p>
+              <button class="btn btn-primary quote-calculate" type="submit">Calculate Fare</button>
+            </form>
+
+            <section class="quote-result" data-quote-result hidden aria-live="polite">
+              <div class="quote-tariff"><strong data-tariff-name>Tariff</strong><span data-tariff-detail></span></div>
+              <p>Estimated metered fare</p>
+              <div class="quote-total" data-fare>£0.00</div>
+              <dl class="quote-result-details">
+                <div><dt>Distance</dt><dd data-result-distance>—</dd></div>
+                <div><dt>Journey time</dt><dd data-result-duration>—</dd></div>
+                <div><dt>Pickup</dt><dd data-result-pickup>—</dd></div>
+                <div><dt>Destination</dt><dd data-result-destination>—</dd></div>
+              </dl>
+              <p class="quote-disclaimer">This is an estimated fare based on Carmarthenshire Hackney Carriage maximum meter tariffs and the calculated driving distance. Actual metered fares may vary due to waiting time, traffic, route changes, applicable extras and other circumstances.</p>
+              <div class="quote-actions">
+                <a class="btn btn-primary" data-book-link href="#">Book Now</a>
+                <a class="btn btn-secondary" data-app-link href="#">Download App</a>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <article class="quote-information">
+          <h2>How your Carmarthen taxi quote is estimated</h2>
+          <p>The calculator uses the Google Maps driving distance and the selected date and time to apply the appropriate Carmarthenshire taxi fare tariff. Journey duration is shown for information only and is not charged as waiting time.</p>
+          <div class="tariff-grid">
+            <section><span>Tariff 1</span><strong>6am–8pm</strong><p>£4.50 first mile, then £0.25 for every additional 0.1 mile or part. Waiting is £0.30 per minute.</p></section>
+            <section><span>Tariff 2</span><strong>8pm–midnight</strong><p>£4.70 first mile, then £0.30 for every additional 0.1 mile or part. Waiting is £0.30 per minute. Also used on Sundays and public or bank holidays.</p></section>
+            <section><span>Tariff 3</span><strong>Midnight–6am</strong><p>£5.15 first mile, then £0.35 for every additional 0.1 mile or part. Waiting is £0.40 per minute.</p></section>
+          </div>
+          <p>Christmas Day and New Year's Day use double Tariff 1. This gives a practical taxi quote for Carmarthen journeys while keeping the published charging rules clear.</p>
+
+          <div class="quote-extras">
+            <h2>Possible extras</h2>
+            <p>These are not automatically added to your estimate because they depend on the individual booking:</p>
+            <ul>
+              <li>Booking fee where the journey commences more than four miles from the operator's base: up to £5.00.</li>
+              <li>Vehicles carrying five to eight passengers: £1.00 for each passenger exceeding four.</li>
+              <li>Contamination or soiling charge: maximum £120. This is not included in a normal quote.</li>
+            </ul>
+          </div>
+        </article>
+      </section>
+    </main>
+    <footer>
+      <div class="container footer-row">
+        <div>© 2026 OZZO Taxi Carmarthen.</div>
+        <div class="footer-links">
+          <a href="airport-prices.html">Airports</a><a href="local-prices.html">Local fares</a
+          ><a href="quote.html">Get a Quote</a><a href="drive-with-us.html">Drive with us</a
+          ><a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
