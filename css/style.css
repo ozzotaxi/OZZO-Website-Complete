@@ -1151,7 +1151,9 @@ footer {
 
 .quote-field input,
 .quote-autocomplete gmp-place-autocomplete {
+    display: block;
     width: 100%;
+    max-width: 100%;
     min-width: 0;
     min-height: 52px;
     border: 1px solid rgba(255, 255, 255, .13);
@@ -1162,7 +1164,9 @@ footer {
 }
 
 .quote-autocomplete {
-    position: relative
+    position: relative;
+    width: 100%;
+    min-width: 0
 }
 
 .quote-suggestions {
@@ -1171,14 +1175,17 @@ footer {
     top: calc(100% + 6px);
     right: 0;
     left: 0;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
     max-height: 220px;
     margin: 0;
     padding: 6px;
     overflow-y: auto;
     list-style: none;
     border: 1px solid rgba(255, 255, 255, .15);
-    border-radius: 14px;
-    background: #18191e;
+    border-radius: 5px 5px 14px 14px;
+    background: #15161a;
     box-shadow: 0 16px 36px rgba(0, 0, 0, .42)
 }
 
@@ -1190,21 +1197,39 @@ footer {
     border-top: 1px solid rgba(255, 255, 255, .08)
 }
 
+.quote-suggestions li {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none
+}
+
 .quote-suggestions button {
+    display: block;
+    appearance: none;
+    -webkit-appearance: none;
     width: 100%;
-    padding: 11px 10px;
+    min-width: 0;
+    min-height: 46px;
+    margin: 0;
+    padding: 12px 11px;
     border: 0;
-    border-radius: 9px;
+    border-radius: 8px;
     color: #fff;
     background: transparent;
     font: inherit;
+    font-size: .88rem;
     line-height: 1.35;
     text-align: left;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: normal;
     cursor: pointer
 }
 
 .quote-suggestions button:hover,
-.quote-suggestions button:focus-visible {
+.quote-suggestions button:focus-visible,
+.quote-suggestions button:active {
     outline: 0;
     background: rgba(239, 32, 45, .16)
 }
@@ -1217,7 +1242,8 @@ footer {
 .quote-field input:focus,
 .quote-autocomplete gmp-place-autocomplete:focus-within {
     border-color: var(--red);
-    outline: 3px solid rgba(239, 32, 45, .18)
+    outline: 2px solid rgba(239, 32, 45, .16);
+    outline-offset: 1px
 }
 
 .quote-field input:disabled {
@@ -1235,8 +1261,18 @@ footer {
 
 .quote-date-row {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    min-width: 0;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 14px
+}
+
+.quote-date-row input[type="date"],
+.quote-date-row input[type="time"] {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    -webkit-min-logical-width: 0
 }
 
 .quote-date-row .quote-field + .quote-field {
