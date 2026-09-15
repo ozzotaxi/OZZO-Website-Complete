@@ -492,10 +492,10 @@ h1 {
     height: 100%
 }
 
-.map-river {
+.map-river path {
     fill: none;
     stroke: #b7dce7;
-    stroke-width: 23;
+    stroke-width: 8;
     stroke-linecap: round
 }
 
@@ -506,32 +506,35 @@ h1 {
     letter-spacing: .08em
 }
 
-.minor-roads path,
-.major-roads path {
+.map-roads path,
+.map-railways path {
     fill: none;
     stroke-linecap: round;
     stroke-linejoin: round
 }
 
-.minor-roads path {
+.map-roads-major path {
+    stroke: #fff4c8;
+    stroke-width: 9;
+    filter: drop-shadow(0 0 1px #c7c0a5)
+}
+
+.map-roads-secondary path {
     stroke: #fff;
     stroke-width: 6;
     filter: drop-shadow(0 0 1px #b8bcb8)
 }
 
-.minor-roads path:nth-child(2n) {
-    stroke-width: 3
+.map-roads-local path {
+    stroke: #fff;
+    stroke-width: 3.5;
+    filter: drop-shadow(0 0 1px #c8cbc7)
 }
 
-.major-roads path {
-    stroke: #fff4c8;
-    stroke-width: 11;
-    filter: drop-shadow(0 0 1px #c7c0a5)
-}
-
-.major-roads path::selection,
-.minor-roads path::selection {
-    background: transparent
+.map-railways path {
+    stroke: #969b99;
+    stroke-width: 1.8;
+    stroke-dasharray: 5 3
 }
 
 .map-blocks {
@@ -573,8 +576,6 @@ h1 {
     font-weight: 900
 }
 
-.route-road-casing,
-.route-road,
 .route-shadow,
 .route-line {
     fill: none;
@@ -582,19 +583,9 @@ h1 {
     stroke-linejoin: round
 }
 
-.route-road-casing {
-    stroke: #c9ccc8;
-    stroke-width: 17
-}
-
-.route-road {
-    stroke: #fff;
-    stroke-width: 14
-}
-
 .route-shadow {
-    stroke: rgba(255, 255, 255, .9);
-    stroke-width: 11
+    stroke: rgba(86, 28, 32, .25);
+    stroke-width: 9
 }
 
 .route-line {
